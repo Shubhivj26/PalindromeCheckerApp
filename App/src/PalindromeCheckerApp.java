@@ -1,21 +1,36 @@
-public class UseCase1PalindromeCheckerApp {
+public class PalindromeCheckerApp {
 
-    // Main method - Entry point of the Java program
     public static void main(String[] args) {
 
-        // Display welcome message
-        System.out.println("===================================");
-        System.out.println("      Palindrome Checker App       ");
-        System.out.println("===================================");
+        // Original string
+        String word = "madam";
 
-        // Display application version
-        System.out.println("Version: 1.0");
+        // Convert string to character array
+        char[] characters = word.toCharArray();
 
-        // Display startup message
-        System.out.println("Welcome to the Palindrome Checker Application!");
-        System.out.println("This application will check whether a given string is a palindrome.");
+        // Two-pointer variables
+        int start = 0;
+        int end = characters.length - 1;
 
-        System.out.println("-----------------------------------");
-        System.out.println("Application started successfully.");
+        boolean isPalindrome = true;
+
+        // Compare characters from both ends
+        while (start < end) {
+
+            if (characters[start] != characters[end]) {
+                isPalindrome = false;
+                break;
+            }
+
+            start++;
+            end--;
+        }
+
+        // Display result
+        if (isPalindrome) {
+            System.out.println(word + " is a Palindrome.");
+        } else {
+            System.out.println(word + " is NOT a Palindrome.");
+        }
     }
 }
